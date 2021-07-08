@@ -1,5 +1,7 @@
-import 'package:bases_web/ui/shared/custom_flat_button.dart';
 import 'package:flutter/material.dart';
+
+import 'package:bases_web/ui/shared/custom_app_menu.dart';
+import 'package:bases_web/ui/shared/custom_flat_button.dart';
 
 class CounterPage extends StatefulWidget {
   const CounterPage({ Key? key }) : super(key: key);
@@ -17,9 +19,18 @@ class _CounterPageState extends State<CounterPage> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text('Contador: $counter', 
-          style: TextStyle(fontSize: 80, fontWeight: FontWeight.bold),),
-
+          //navbar
+          CustomAppMenu(),          
+          //spacer crea un espacio entre los elementos
+          Spacer(),
+          FittedBox(
+            fit: BoxFit.contain,
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              child: Text('Contador: $counter', 
+              style: TextStyle(fontSize: 80, fontWeight: FontWeight.bold),),
+            ),
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -33,10 +44,7 @@ class _CounterPageState extends State<CounterPage> {
               ),
             ],
           ),
-          
-
-
-          
+          Spacer(),       
         ],
       ),
     );
